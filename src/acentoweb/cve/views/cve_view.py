@@ -25,13 +25,13 @@ class CveView(BrowserView):
 <CV_RESOURCE AUTHOR="" DATE="%s" VERSION="0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv2.8.xsd">\n
 <LANGUAGE LANG_DEF="http://cdb.iso.org/lg/CDB-00138502-001" LANG_ID="eng" LANG_LABEL="English (eng)"/>
 <CONTROLLED_VOCABULARY CV_ID="ASL Signbank lexicon">
-<DESCRIPTION LANG_REF="eng">The main dataset in the ASL Signbank</DESCRIPTION>""" % datetime.datetime.now().isoformat()
+<DESCRIPTION LANG_REF="eng">The main dataset in the ASL Signbank</DESCRIPTION>\n""" % datetime.datetime.now().isoformat()
 
         for item in self.get_items():
             #If we add cve_id to index, we can skip getObject for next line
             obj = item.getObject()
 
-            CVE = CVE + "<CV_ENTRY_ML CVE_ID='{id}' EXT_REF='signbank-ecv'><CVE_VALUE DESCRIPTION='{description}' LANG_REF='eng'>{title}</CVE_VALUE></CV_ENTRY_ML>".format(id =obj.cve_id, description=obj.Description(), title=obj.Title())
+            CVE = CVE + "<CV_ENTRY_ML CVE_ID='{id}' EXT_REF='signbank-ecv'><CVE_VALUE DESCRIPTION='{description}' LANG_REF='eng'>{title}</CVE_VALUE></CV_ENTRY_ML>\n".format(id =obj.cve_id, description=obj.Description(), title=obj.Title())
 
         CVE = CVE + """</CONTROLLED_VOCABULARY>
 <EXTERNAL_REF EXT_REF_ID="signbank-ecv" TYPE="resource_url"
