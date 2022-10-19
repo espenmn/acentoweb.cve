@@ -6,6 +6,11 @@
   <configure zcml:condition="installed AccessControl.security">
   <!-- -*- extra stuff goes here -*- -->
 
+  <permission
+    id="acentoweb.cve"
+    title="Acentoweb: Cve"
+  />
+
 
   </configure>
 

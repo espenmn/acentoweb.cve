@@ -8,10 +8,9 @@
 
   <browser:page
     name="cve-view"
-    for="Products.CMFCore.interfaces.IFolderish"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     class=".cve_view.CveView"
-    template="cve_view.pt"
-    permission="zope2.View"
+    permission="acentoweb.cve"
     />
 
 
