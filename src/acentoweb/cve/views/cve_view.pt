@@ -5,9 +5,35 @@
       i18n:domain="acentoweb.cve"
       metal:use-macro="context/main_template/macros/master">
 <body>
-  <metal:block fill-slot="content-core">
-      <h2 i18n:translate="">Sample View</h2>
-      <p tal:content="view/msg">this gets replaced</p>
-  </metal:block>
+  <?xml version="1.0" ?>
+  <CV_RESOURCE AUTHOR="" DATE="${view/now_date}"
+    VERSION="0.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv2.8.xsd">
+    <LANGUAGE LANG_DEF="http://cdb.iso.org/lg/CDB-00138502-001"
+      LANG_ID="eng" LANG_LABEL="English (eng)"/>
+    <CONTROLLED_VOCABULARY CV_ID="ASL Signbank lexicon">
+    <DESCRIPTION LANG_REF="eng">The main dataset in the ASL Signbank</DESCRIPTION>
+
+    <tal:repeat tal:repeat="item view/get_items|None">
+      <div tal:define="obj item/getObject">
+       <!-- if fields are in catalog index we dont need the line above -->
+
+      <CV_ENTRY_ML CVE_ID="${obj/cve_id}"
+        EXT_REF="signbank-ecv">
+        <CVE_VALUE
+          DESCRIPTION="${item/Description}"
+          LANG_REF="eng">${item/Title}
+        </CVE_VALUE>
+      </CV_ENTRY_ML>
+
+    </tal:repeat>
+
+    </CONTROLLED_VOCABULARY>
+  <EXTERNAL_REF EXT_REF_ID="signbank-ecv"
+    TYPE="resource_url"
+    VALUE="https://aslsignbank.haskins.yale.edu//dictionary/gloss/"/>
+  </CV_RESOURCE>
+
 </body>
 </html>
