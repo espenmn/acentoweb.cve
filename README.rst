@@ -3,22 +3,19 @@
    This text does not appear on pypi or github. It is a comment.
 
 =============
-acentoweb.cve
+acentoweb.ecv
 =============
 
-Tell me what your product does
+Exports ECV files from Plone CMS
+
 
 Features
 --------
 
-- Can be bullet points
+- View to export ECV files  
 
 
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+ 
 
 
 Documentation
@@ -32,20 +29,20 @@ Translations
 
 This product has been translated into
 
-- Klingon (thanks, K'Plai)
+- english (default=)
 
 
 Installation
 ------------
 
-Install acentoweb.cve by adding it to your buildout::
+Install acentoweb.ecv by adding it to your buildout::
 
     [buildout]
 
     ...
 
     eggs =
-        acentoweb.cve
+        acentoweb.ecv
 
 
 and then running ``bin/buildout``
@@ -54,16 +51,16 @@ and then running ``bin/buildout``
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/acentoweb.cve/issues
-- Source Code: https://github.com/collective/acentoweb.cve
-- Documentation: https://docs.plone.org/foo/bar
+- Issue Tracker: https://github.com/espenmn/acentoweb.ecv/issues
+- Source Code: https://github.com/espenmn/acentoweb.ecv
+
 
 
 Support
 -------
 
 If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+espen@medialog.no
 
 
 License

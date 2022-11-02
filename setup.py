@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Installer for the acentoweb.cve package."""
+"""Installer for the acentoweb.ecv package."""
 
 from setuptools import find_packages
 from setuptools import setup
@@ -13,8 +13,8 @@ long_description = '\n\n'.join([
 
 
 setup(
-    name='acentoweb.cve',
-    version='1.0a1',
+    name='acentoweb.ecv',
+    version='1.0',
     description="CVE export function for Plone",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
@@ -31,12 +31,12 @@ setup(
     keywords='Python Plone',
     author='Espen Moe-Nilssen',
     author_email='espen@medialog.no',
-    url='https://github.com/collective/acentoweb.cve',
+    url='https://github.com/collective/acentoweb.ecv',
     project_urls={
-        'PyPI': 'https://pypi.python.org/pypi/acentoweb.cve',
-        'Source': 'https://github.com/collective/acentoweb.cve',
-        'Tracker': 'https://github.com/collective/acentoweb.cve/issues',
-        # 'Documentation': 'https://acentoweb.cve.readthedocs.io/en/latest/',
+        'PyPI': 'https://pypi.python.org/pypi/acentoweb.ecv',
+        'Source': 'https://github.com/espenmn/acentoweb.ecv',
+        'Tracker': 'https://github.com/espenmn/acentoweb.ecv/issues',
+        # 'Documentation': 'https://acentoweb.ecv.readthedocs.io/en/latest/',
     },
     license='GPL version 2',
     packages=find_packages('src', exclude=['ez_setup']),
@@ -68,6 +68,6 @@ setup(
     [z3c.autoinclude.plugin]
     target = plone
     [console_scripts]
-    update_locale = acentoweb.cve.locales.update:update_locale
+    update_locale = acentoweb.ecv.locales.update:update_locale
     """,
 )

@@ -7,8 +7,8 @@
   <!-- -*- extra stuff goes here -*- -->
 
   <permission
-    id="acentoweb.cve"
-    title="Acentoweb: Cve"
+    id="acentoweb.ecv"
+    title="Acentoweb: Ecv"
   />
 
 

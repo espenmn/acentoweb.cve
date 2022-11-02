@@ -2,15 +2,15 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
-    i18n_domain="acentoweb.cve">
+    i18n_domain="acentoweb.ecv">
 
   -*- extra stuff goes here -*-
 
   <browser:page
-    name="cve-view"
+    name="ecv-view"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    class=".cve_view.CveView"
-    permission="acentoweb.cve"
+    class=".ecv_view.EcvView"
+    permission="acentoweb.ecv"
     />
 
 

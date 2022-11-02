@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from acentoweb.cve import _
+from acentoweb.ecv import _
 from Products.Five.browser import BrowserView
 
 import datetime;
@@ -9,9 +9,9 @@ from tempfile import TemporaryFile
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
-class CveView(BrowserView):
+class EcvView(BrowserView):
     #def __init__(self, context, request):
-    #    super(CveView, self).__init__(context, request)
+    #    super(EcvView, self).__init__(context, request)
 
     def __call__(self):
         '''Returns the csv file,
@@ -28,10 +28,10 @@ class CveView(BrowserView):
 <DESCRIPTION LANG_REF="eng">The main dataset in the ASL Signbank</DESCRIPTION>\n""" % datetime.datetime.now().isoformat()
 
         for item in self.get_items():
-            #If we add cve_id to index, we can skip getObject for next line
+            #If we add ecv_id to index, we can skip getObject for next line
             obj = item.getObject()
 
-            CVE = CVE + "<CV_ENTRY_ML CVE_ID='{id}' EXT_REF='signbank-ecv'><CVE_VALUE DESCRIPTION='{description}' LANG_REF='eng'>{title}</CVE_VALUE></CV_ENTRY_ML>\n".format(id =obj.cve_id, description=obj.Description(), title=obj.Title())
+            CVE = CVE + "<CV_ENTRY_ML CVE_ID='{id}' EXT_REF='signbank-ecv'><CVE_VALUE DESCRIPTION='{description}' LANG_REF='eng'>{title}</CVE_VALUE></CV_ENTRY_ML>\n".format(id =obj.ecv_id, description=obj.Description(), title=obj.Title())
 
         CVE = CVE + """</CONTROLLED_VOCABULARY>
 <EXTERNAL_REF EXT_REF_ID="signbank-ecv" TYPE="resource_url"
@@ -44,8 +44,8 @@ class CveView(BrowserView):
         dataLen = len(CVE)
         R = self.request.RESPONSE
         R.setHeader('Content-Length', dataLen)
-        R.setHeader('Content-Type', 'text/cve')
-        R.setHeader('Content-Disposition', 'attachment; filename=%s.cve' % self.context.getId())
+        R.setHeader('Content-Type', 'text/ecv')
+        R.setHeader('Content-Disposition', 'attachment; filename=%s.ecv' % self.context.getId())
 
         #return and downloads the file
         return CVE

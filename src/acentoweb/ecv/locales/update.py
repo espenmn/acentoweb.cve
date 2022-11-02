@@ -5,10 +5,10 @@ import pkg_resources
 import subprocess
 
 
-domain = 'acentoweb.cve'
+domain = 'acentoweb.ecv'
 os.chdir(pkg_resources.resource_filename(domain, ''))
 os.chdir('../../../')
-target_path = 'src/acentoweb/cve/'
+target_path = 'src/acentoweb/ecv/'
 locale_path = target_path + 'locales/'
 i18ndude = './bin/i18ndude'
 

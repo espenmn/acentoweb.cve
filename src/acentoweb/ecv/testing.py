@@ -7,10 +7,10 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
 
-import acentoweb.cve
+import acentoweb.ecv
 
 
-class AcentowebCveLayer(PloneSandboxLayer):
+class AcentowebEcvLayer(PloneSandboxLayer):
 
     defaultBases = (PLONE_APP_CONTENTTYPES_FIXTURE,)
 
@@ -20,24 +20,24 @@ class AcentowebCveLayer(PloneSandboxLayer):
         # layer.
         import plone.restapi
         self.loadZCML(package=plone.restapi)
-        self.loadZCML(package=acentoweb.cve)
+        self.loadZCML(package=acentoweb.ecv)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'acentoweb.cve:default')
+        applyProfile(portal, 'acentoweb.ecv:default')
 
 
-ACENTOWEB_CVE_FIXTURE = AcentowebCveLayer()
+ACENTOWEB_CVE_FIXTURE = AcentowebEcvLayer()
 
 
 ACENTOWEB_CVE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(ACENTOWEB_CVE_FIXTURE,),
-    name='AcentowebCveLayer:IntegrationTesting',
+    name='AcentowebEcvLayer:IntegrationTesting',
 )
 
 
 ACENTOWEB_CVE_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(ACENTOWEB_CVE_FIXTURE,),
-    name='AcentowebCveLayer:FunctionalTesting',
+    name='AcentowebEcvLayer:FunctionalTesting',
 )
 
 
@@ -47,5 +47,5 @@ ACENTOWEB_CVE_ACCEPTANCE_TESTING = FunctionalTesting(
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
         z2.ZSERVER_FIXTURE,
     ),
-    name='AcentowebCveLayer:AcceptanceTesting',
+    name='AcentowebEcvLayer:AcceptanceTesting',
 )

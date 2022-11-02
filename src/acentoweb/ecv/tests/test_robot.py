@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from acentoweb.cve.testing import ACENTOWEB_CVE_ACCEPTANCE_TESTING  # noqa: E501
+from acentoweb.ecv.testing import ACENTOWEB_CVE_ACCEPTANCE_TESTING  # noqa: E501
 from plone.app.testing import ROBOT_TEST_LEVEL
 from plone.testing import layered
 

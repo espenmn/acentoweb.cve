@@ -4,17 +4,17 @@
 #
 # Run this robot test stand-alone:
 #
-#  $ bin/test -s acentoweb.cve -t test_example.robot --all
+#  $ bin/test -s acentoweb.ecv -t test_example.robot --all
 #
 # Run this robot test with robot server (which is faster):
 #
 # 1) Start robot server:
 #
-# $ bin/robot-server --reload-path src acentoweb.cve.testing.ACENTOWEB_CVE_ACCEPTANCE_TESTING
+# $ bin/robot-server --reload-path src acentoweb.ecv.testing.ACENTOWEB_CVE_ACCEPTANCE_TESTING
 #
 # 2) Run robot tests:
 #
-# $ bin/robot src/acentoweb/cve/tests/robot/test_example.robot
+# $ bin/robot src/acentoweb/ecv/tests/robot/test_example.robot
 #
 # See the http://docs.plone.org for further details (search for robot
 # framework).

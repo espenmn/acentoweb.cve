@@ -4,7 +4,7 @@
     <role name="CVE Exporter"/>
   </roles>
   <permissions>
-    <permission name="Acentoweb: Cve" acquire="True">
+    <permission name="Acentoweb: Ecv" acquire="True">
       <role name="CVE Exporter"/>
     </permission>
   </permissions>

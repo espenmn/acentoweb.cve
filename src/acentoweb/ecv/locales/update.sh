@@ -3,10 +3,10 @@
 # ``export PATH=$PATH:$BUILDOUT_DIR/bin`` when i18ndude is located in your buildout's bin directory)
 #
 # For every language you want to translate into you need a
-# locales/[language]/LC_MESSAGES/acentoweb.cve.po
-# (e.g. locales/de/LC_MESSAGES/acentoweb.cve.po)
+# locales/[language]/LC_MESSAGES/acentoweb.ecv.po
+# (e.g. locales/de/LC_MESSAGES/acentoweb.ecv.po)
 
-domain=acentoweb.cve
+domain=acentoweb.ecv
 
 i18ndude rebuild-pot --pot $domain.pot --create $domain ../
 i18ndude sync --pot $domain.pot */LC_MESSAGES/$domain.po
