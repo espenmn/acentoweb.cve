@@ -10,7 +10,7 @@
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
    <property name="permissions">
-    <element value="View"/>
+    <element value="Acentoweb: Ecv"/>
    </property>
    <property name="visible">True</property>
    <property name="modal" type="text"></property>
