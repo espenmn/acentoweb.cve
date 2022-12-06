@@ -10,8 +10,15 @@
     name="ecv-view"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     class=".ecv_view.EcvView"
-    permission="acentoweb.ecv"
-    />
+    permission="zope2.View"
+  />
+
+  <browser:page
+    name="ecv-display"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".ecv_view.EcvDisplay"
+    permission="zope2.View"
+  />
 
 
 </configure>

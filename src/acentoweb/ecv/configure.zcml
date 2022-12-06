@@ -15,7 +15,7 @@
 
   <include package=".browser" />
 
-  <include file="permissions.zcml" />
+  <!--include file="permissions.zcml" /-->
 
   <genericsetup:registerProfile
       name="default"
