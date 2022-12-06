@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='acentoweb.ecv',
-    version='1.2',
+    version='1.3',
     description="CVE export function for Plone",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
