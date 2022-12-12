@@ -26,3 +26,10 @@ Changelog
 ------------------
 
 - Added view ecv-display
+
+
+1.4 (09.12.2022)
+------------------
+
+- Change id field name
+- Change ' to " 
