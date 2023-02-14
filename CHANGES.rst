@@ -32,4 +32,10 @@ Changelog
 ------------------
 
 - Change id field name
-- Change ' to " 
+- Change ' to "
+
+
+1.4.2 (13.12.2022)
+------------------
+
+- Add replace in export ( " => ' ) 

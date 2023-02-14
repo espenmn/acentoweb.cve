@@ -19,6 +19,9 @@ class EcvDisplay(BrowserView):
         request = self.request
         context = self.context
 
+
+
+
         CVE = """<?xml version=\"1.0\" ?>
 <CV_RESOURCE AUTHOR=\"\" DATE=\"%s\" VERSION=\"0.2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"http://www.mpi.nl/tools/elan/EAFv2.8.xsd\">\n
 <LANGUAGE LANG_DEF=\"http://cdb.iso.org/lg/CDB-00138502-001\" LANG_ID=\"eng\" LANG_LABEL=\"English (eng)\"/>
@@ -28,8 +31,11 @@ class EcvDisplay(BrowserView):
         for item in self.get_items():
             #If we add ecv_id to index, we can skip getObject for next line
             obj = item.getObject()
-            #import pdb; pdb.set_trace();
-            CVE = CVE + """<CV_ENTRY_ML CVE_ID=\"{id}\" EXT_REF=\"signbank-ecv\"><CVE_VALUE DESCRIPTION=\"{description}\" LANG_REF=\"eng\">{title}</CVE_VALUE></CV_ENTRY_ML>\n"""   .format(id =obj.eco_id, description=obj.Description(), title=obj.Title())
+            eco_id =obj.eco_id.replace("\"", "\'")
+            eco_description = obj.Description().replace("\"", "\'")
+            eco_title = obj.Title().replace("\"", "\'")
+
+            CVE = CVE + """<CV_ENTRY_ML CVE_ID=\"{id}\" EXT_REF=\"signbank-ecv\"><CVE_VALUE DESCRIPTION=\"{description}\" LANG_REF=\"eng\">{title}</CVE_VALUE></CV_ENTRY_ML>\n"""   .format(id =eco_id, description=eco_description, title=eco_title)
 
         CVE = CVE + """</CONTROLLED_VOCABULARY>
 <EXTERNAL_REF EXT_REF_ID=\"signbank-ecv\" TYPE=\"resource_url\"
@@ -51,7 +57,7 @@ class EcvDisplay(BrowserView):
 
 
     def get_items(self):
-        return self.context.portal_catalog(portal_type=["CNLSE Glosa", "cnlse_glosa"], sort_on="sortable_title", sort_order="ascending")
+        return self.context.portal_catalog(portal_type=["CNLSE Glosa", "cnlse_glosa", "cnlse_glosa"], sort_on="sortable_title", sort_order="ascending")
 
 
 class EcvView(BrowserView):
@@ -94,7 +100,6 @@ class EcvView(BrowserView):
 
         #return and downloads the file
         return CVE
-
 
     def get_items(self):
         return self.context.portal_catalog(portal_type=["CNLSE Glosa", "cnlse_glosa"], sort_on="sortable_title", sort_order="ascending")
