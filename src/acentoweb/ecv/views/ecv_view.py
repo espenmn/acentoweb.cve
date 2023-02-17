@@ -6,13 +6,24 @@ from Products.Five.browser import BrowserView
 import datetime;
 from tempfile import TemporaryFile
 
+from zope.interface.interfaces import IMethod
+
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+
+
+#def get_ecv_fields(item):
+#    ecv_fields = ''
+#    for field in [ {'name': 'translation_en', 'desc': 'Translation equivalents in English' } ]:
+#        ecv_fields = ecv_fields + """<{title} DESCRIPTION=\"{description}\" LANG_REF=\"eng\">{title}</{title}></CV_ENTRY_ML>\n""".format( description=field["desc"], title=field["name"])
+#    return ecv_fields
+
 
 
 class EcvDisplay(BrowserView):
 
     def __call__(self):
-        """Returns the csv content,
+        """Returns the ecv content,
         """
         #We could put get items here, might save a few milliseconds :)
         #return self.index()
@@ -57,7 +68,8 @@ class EcvDisplay(BrowserView):
 
 
     def get_items(self):
-        return self.context.portal_catalog(portal_type=["CNLSE Glosa", "cnlse_glosa", "cnlse_glosa"], sort_on="sortable_title", sort_order="ascending")
+        return self.context.portal_catalog(portal_type=["CNLSE Glosa", "cnlse_glosa", "cnlse_gloss"], sort_on="sortable_title", sort_order="ascending")
+
 
 
 class EcvView(BrowserView):
@@ -65,7 +77,7 @@ class EcvView(BrowserView):
     #    super(EcvView, self).__init__(context, request)
 
     def __call__(self):
-        """Returns the csv file,
+        """Returns the csv/ecv file,
         """
         #We could put get items here, might save a few milliseconds :)
         #return self.index()
@@ -81,8 +93,9 @@ class EcvView(BrowserView):
         for item in self.get_items():
             #If we add ecv_id to index, we can skip getObject for next line
             obj = item.getObject()
+            eco_id = obj.cve_id.replace("\"", "\'")
 
-            CVE = CVE + """<CV_ENTRY_ML CVE_ID=\"{id}\" EXT_REF=\"signbank-ecv\"><CVE_VALUE DESCRIPTION=\"{description}\" LANG_REF=\"eng\">{title}</CVE_VALUE></CV_ENTRY_ML>\n""".format(id =obj.ecv_id, description=obj.Description(), title=obj.Title())
+
 
         CVE = CVE + """</CONTROLLED_VOCABULARY>
 <EXTERNAL_REF EXT_REF_ID=\"signbank-ecv\" TYPE=\"resource_url\"
@@ -102,4 +115,4 @@ class EcvView(BrowserView):
         return CVE
 
     def get_items(self):
-        return self.context.portal_catalog(portal_type=["CNLSE Glosa", "cnlse_glosa"], sort_on="sortable_title", sort_order="ascending")
+        return self.context.portal_catalog(portal_type=["CNLSE Glosa", "cnlse_glosa", "cnlse_gloss" ], sort_on="sortable_title", sort_order="ascending")
