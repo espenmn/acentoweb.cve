@@ -6,11 +6,19 @@
 
 
   <browser:page
-    name="lexicon"
+    name="lexicon-display"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    class=".lexicon.Lexicon"
+    class=".lexicon.LexiconDisplay"
     permission="zope2.View"
   />
+
+  <browser:page
+    name="lexicon-view"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".lexicon.LexiconView"
+    permission="zope2.View"
+  />
+
 
   <browser:page
     name="ecv-view"
