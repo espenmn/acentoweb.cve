@@ -2,12 +2,9 @@
 
 from acentoweb.ecv import _
 from Products.Five.browser import BrowserView
-
 import datetime;
 from tempfile import TemporaryFile
-
 from zope.interface.interfaces import IMethod
-
 
 
 class Lexicon(BrowserView):
@@ -38,7 +35,7 @@ class Lexicon(BrowserView):
                     <definition>{description}</definition>
                 </sense>
             </entry>
-            """.format(id=eco_id, description=eco_description, title=eco_title, semantic=obj.semantico)
+            """.format(id=eco_id, description=eco_description, title=eco_title, semantic=obj.semantico or None)
 
         CVE = CVE + """</lexicon>"""
 

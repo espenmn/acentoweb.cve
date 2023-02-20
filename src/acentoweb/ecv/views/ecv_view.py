@@ -2,10 +2,8 @@
 
 from acentoweb.ecv import _
 from Products.Five.browser import BrowserView
-
 import datetime;
 from tempfile import TemporaryFile
-
 from zope.interface.interfaces import IMethod
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -31,8 +29,6 @@ class EcvDisplay(BrowserView):
         context = self.context
 
 
-
-
         CVE = """<?xml version=\"1.0\" ?>
 <CV_RESOURCE AUTHOR=\"\" DATE=\"%s\" VERSION=\"0.2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"http://www.mpi.nl/tools/elan/EAFv2.8.xsd\">\n
 <LANGUAGE LANG_DEF=\"http://cdb.iso.org/lg/CDB-00138502-001\" LANG_ID=\"eng\" LANG_LABEL=\"English (eng)\"/>
@@ -42,7 +38,7 @@ class EcvDisplay(BrowserView):
         for item in self.get_items():
             #If we add ecv_id to index, we can skip getObject for next line
             obj = item.getObject()
-            eco_id =obj.eco_id.replace("\"", "\'")
+            eco_id = obj.cve_id.replace("\"", "\'")
             eco_description = obj.Description().replace("\"", "\'")
             eco_title = obj.Title().replace("\"", "\'")
 
