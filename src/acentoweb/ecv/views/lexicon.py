@@ -35,6 +35,8 @@ def getCVE(self):
             value = getattr(getattr(obj, key), 'output', getattr(obj, key))
 
             import pdb; pdb.set_trace()
+            if value == None or value == []:
+                value = ""
 
             ## what shall we do with empty/not existing values?
             if type(value)() == []:
