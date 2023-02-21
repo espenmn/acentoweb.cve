@@ -47,7 +47,7 @@ class LexiconDisplay(BrowserView):
             for key, value in getFieldsInOrder(obj.getTypeInfo().lookupSchema()):
                 value = getattr(getattr(obj, key), 'output', getattr(obj, key))
 
-                ## what shall we do with empty values?
+                ## what shall we do with empty/not existing values?
                 if value == None or value == []:
                     value = ""
 
