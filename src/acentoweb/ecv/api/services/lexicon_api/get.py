@@ -17,28 +17,27 @@ class LexiconApi(object):
 
     def __call__(self, expand=False):
         result = {
-            'lexicon_api': {
-                '@id': '{}/@lexicon_api'.format(
-                    self.context.absolute_url(),
-                ),
+            'lexicon': {
+                #'@id': '{}/@lexicon_api'.format(
+                #    self.context.absolute_url(),
+                #),
             },
         }
-        if not expand:
-            return result
+        #if not expand:
+        #    return result
 
-        # === Your custom code comes here ===
+        # === Get content and return lexicon as json ===
 
-        # Example:
-        try:
-            subjects = self.context.Subject()
-        except:
-            subjects = []
+        #try:
+        #    subjects = self.context.Subject()
+        #except:
+        #    subjects = []
         query = {}
-        query['portal_type'] = "Document"
-        query['Subject'] = {
-            'query': subjects,
-            'operator': 'or',
-        }
+        query['portal_type'] =  "cnlse_gloss"
+        #query['Subject'] = {
+        #    'query': subjects,
+        #    'operator': 'or',
+        #}
         brains = api.content.find(**query)
         items = []
         for brain in brains:
@@ -46,10 +45,11 @@ class LexiconApi(object):
             # parent = obj.aq_inner.aq_parent
             items.append({
                 'title': brain.Title,
+                'cve_id': brain.id,
                 'description': brain.Description,
-                '@id': brain.getURL(),
+                #'@id': brain.getURL(),
             })
-        result['lexicon_api']['items'] = items
+        result['lexicon']['items'] = items
         return result
 
 
