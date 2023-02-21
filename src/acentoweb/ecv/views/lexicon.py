@@ -34,7 +34,7 @@ def getCVE(self):
         for key, value in getFieldsInOrder(obj.getTypeInfo().lookupSchema()):
             value = getattr(getattr(obj, key), 'output', getattr(obj, key))
 
-            import pdb; pdb.set_trace()
+            #import pdb; pdb.set_trace()
             if value == None or value == []:
                 value = ""
 
