@@ -2,9 +2,11 @@
 
 from acentoweb.ecv import _
 from Products.Five.browser import BrowserView
-import datetime;
 from tempfile import TemporaryFile
 from zope.interface.interfaces import IMethod
+
+import datetime
+
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 

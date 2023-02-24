@@ -5,6 +5,7 @@
     i18n_domain="acentoweb.ecv">
 
   -*- extra stuff goes here -*-
+<include package=".get_gloss" />
 <include package=".lexicon_api" />
 
 

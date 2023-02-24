@@ -2,9 +2,12 @@
 
 from acentoweb.ecv import _
 from Products.Five.browser import BrowserView
-import datetime;
 from tempfile import TemporaryFile
 from zope.schema import getFieldsInOrder
+
+import datetime
+
+
 #from zope.interface.interfaces import IMethod
 #from plone.dexterity.interfaces import IDexterityFTI
 #from zope.component import getUtility

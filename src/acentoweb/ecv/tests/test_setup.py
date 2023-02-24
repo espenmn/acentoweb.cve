@@ -34,8 +34,7 @@ class TestSetup(unittest.TestCase):
 
     def test_browserlayer(self):
         """Test that IAcentowebEcvLayer is registered."""
-        from acentoweb.ecv.interfaces import (
-            IAcentowebEcvLayer)
+        from acentoweb.ecv.interfaces import IAcentowebEcvLayer
         from plone.browserlayer import utils
         self.assertIn(
             IAcentowebEcvLayer,
@@ -64,8 +63,7 @@ class TestUninstall(unittest.TestCase):
 
     def test_browserlayer_removed(self):
         """Test that IAcentowebEcvLayer is removed."""
-        from acentoweb.ecv.interfaces import \
-            IAcentowebEcvLayer
+        from acentoweb.ecv.interfaces import IAcentowebEcvLayer
         from plone.browserlayer import utils
         self.assertNotIn(
             IAcentowebEcvLayer,
