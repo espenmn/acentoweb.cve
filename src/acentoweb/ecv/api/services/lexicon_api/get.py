@@ -46,6 +46,7 @@ class LexiconApi(object):
             items.append({
                 'title': brain.Title,
                 'cve_id': brain.id,
+                'uid': brain.UID,
                 'description': brain.Description,
                 #'@id': brain.getURL(),
             })
