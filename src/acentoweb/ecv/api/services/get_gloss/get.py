@@ -5,8 +5,8 @@ from plone.restapi.services import Service
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
-
 from zope.schema import getFieldsInOrder
+
 
 @implementer(IExpandableElement)
 @adapter(Interface, Interface)

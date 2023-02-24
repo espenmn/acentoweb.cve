@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="acentoweb.ecv"
+      metal:use-macro="context/main_template/macros/master">
+<body>
+  <metal:content-core fill-slot="content-core">
+  <metal:block define-macro="content-core">
+
+      <h2 i18n:translate="">{Title}</h2>
+
+      <p><span class="gloss_key">CVD ID</span> <span class="gloss_value"> {cve_id} </span></p>
+      <p><span class="gloss_key">Gloss ID</span> <span class="gloss_value"> {gloss_id} </span></p>
+      <p><span class="gloss_key">Campo semántico</span> <span class="gloss_value"> {semantic} </span></p>
+      <p><span class="gloss_key">Manual</span> <span class="gloss_value"> {manual} </span></p>
+      <p><span class="gloss_key">English ID-Gloss</span> <span class="gloss_value"> {gloss_id_en} </span></p>
+      <p><span class="gloss_key">Translation English<</span> <span class="gloss_value"> {translation_en} </span></p>
+      <p><span class="gloss_key">Observaciones</span> <span class="gloss_value"> {observations} </span></p>
+      <p><span class="gloss_key">Sinónimos</span> <span class="gloss_value"> {synonyms} </span></p>
+
+      <div tal:replace="context/manual" />
+
+  </metal:block>
+  </metal:content-core>
+</body>
+</html>
