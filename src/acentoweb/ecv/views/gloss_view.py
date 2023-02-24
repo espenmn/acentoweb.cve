@@ -19,4 +19,5 @@ class GlossView(BrowserView):
 
     def __call__(self):
         # Implement your own actions:
-        return self.index()
+        #return self.index()
+        a = 1

@@ -8,18 +8,39 @@
   <metal:content-core fill-slot="content-core">
   <metal:block define-macro="content-core">
 
-      <h2 i18n:translate="">{Title}</h2>
+      <!--h2 i18n:translate="">${context/Title}</h2-->
 
-      <p><span class="gloss_key">CVD ID</span> <span class="gloss_value"> {cve_id} </span></p>
-      <p><span class="gloss_key">Gloss ID</span> <span class="gloss_value"> {gloss_id} </span></p>
-      <p><span class="gloss_key">Campo semántico</span> <span class="gloss_value"> {semantic} </span></p>
-      <p><span class="gloss_key">Manual</span> <span class="gloss_value"> {manual} </span></p>
-      <p><span class="gloss_key">English ID-Gloss</span> <span class="gloss_value"> {gloss_id_en} </span></p>
-      <p><span class="gloss_key">Translation English<</span> <span class="gloss_value"> {translation_en} </span></p>
-      <p><span class="gloss_key">Observaciones</span> <span class="gloss_value"> {observations} </span></p>
-      <p><span class="gloss_key">Sinónimos</span> <span class="gloss_value"> {synonyms} </span></p>
+      <p class="gloss_entry"><span class="gloss_key">CVD ID</span> <span class="gloss_value"> ${context/cve_id} </span></p>
+      <p class="gloss_entry"><span class="gloss_key">Gloss ID</span> <span class="gloss_value"> ${context/gloss_id} </span></p>
+      <p class="gloss_entry"><span class="gloss_key">Campo semántico</span> <span class="gloss_value"> ${context/semantic} </span></p>
+      <p class="gloss_entry"><span class="gloss_key">Manual</span> <span class="gloss_value"> ${context/manual} </span></p>
+      <p class="gloss_entry"><span class="gloss_key">English ID-Gloss</span> <span class="gloss_value"> ${context/gloss_id_en} </span></p>
+      <p class="gloss_entry"><span class="gloss_key">Translation English</span> <span class="gloss_value"> ${context/translation_en} </span></p>
+      <p class="gloss_entry"><span class="gloss_key">Observaciones</span> <span class="gloss_value"> ${context/observations} </span></p>
+      <p class="gloss_entry"><span class="gloss_key">Sinónimos</span>
+        <tal:repeat tal:repeat="synonym context/synonyms">
+          <span class="gloss_value"> ${python: synonym.to_object.title}</span>
+        </tal:repeat>
+      </p>
 
-      <div tal:replace="context/manual" />
+      <div class="hand_images">
+        <!-- show each letter as image-->
+        <tal:repeat tal:repeat="letter context/Title">
+
+          <!--img src="/++resource++acentoweb.ecv/th_a.jpg" -->
+          <img src="https://auslan.org.au/static/images/twohanded/th_${python:letter.lower()}.jpg" >
+
+
+        </tal:repeat>
+      </div>
+
+
+
+      <style>
+        .gloss_key {color: #123456; font-weight: bold; min-width: 200px; display: inline-block}
+        .gloss_entry {border-bottom: 1px dotted silver;}
+      </style>
+
 
   </metal:block>
   </metal:content-core>

@@ -34,5 +34,11 @@
     permission="zope2.View"
   />
 
+  <browser:page
+    name="gloss-view"
+    for="*"
+    template="gloss_view.pt"
+    permission="zope2.View"
+  />
 
 </configure>
