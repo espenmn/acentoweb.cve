@@ -23,6 +23,35 @@
         </tal:repeat>
       </p>
 
+       <figure class="custom-leadimage"
+              tal:define="scale context/@@images; scaled_image python:scale.scale('image', scale='preview')"
+              tal:condition="scaled_image">
+              <img tal:replace="structure python:scaled_image.tag()"
+                   tal:on-error=""/>
+       </figure>
+
+
+        <video width="320" height="240" controls tal:condition="context/video1">
+          <!-- probably, we need to pass mime type, too -->
+ 			    <source src="${python: context.absolute_url()}/view/++widget++form.widgets.video1/@@download/${python: context.video1.filename}" >
+ 	     </video>
+
+       <video width="320" height="240" controls tal:condition="context/video2">
+         <!-- probably, we need to pass mime type, too -->
+         <source src="${python: context.absolute_url()}/view/++widget++form.widgets.video1/@@download/${python: context.video2.filename}" >
+      </video>
+
+      <video width="320" height="240" controls tal:condition="context/video3">
+        <!-- probably, we need to pass mime type, too -->
+        <source src="${python: context.absolute_url()}/view/++widget++form.widgets.video1/@@download/${python: context.video3.filename}" >
+     </video>
+
+     <video width="320" height="240" controls tal:condition="context/video4">
+       <!-- probably, we need to pass mime type, too -->
+        <source src="${python: context.absolute_url()}/view/++widget++form.widgets.video1/@@download/${python: context.video4.filename}" >
+     </video>
+
+
       <div class="hand_images">
         <!-- show each letter as image-->
         <tal:repeat tal:repeat="letter context/Title">
