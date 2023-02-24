@@ -18,9 +18,9 @@ class LexiconApi(object):
     def __call__(self, expand=False):
         result = {
             'lexicon': {
-                #'@id': '{}/@lexicon_api'.format(
-                #    self.context.absolute_url(),
-                #),
+                '@id': '{}/@lexicon_api'.format(
+                    self.context.absolute_url(),
+                ),
             },
         }
         #if not expand:
