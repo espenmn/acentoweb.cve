@@ -31,19 +31,24 @@ def getCVE(self):
             <sense>
                <definition>{description}</definition>""".format(id=eco_id, description=eco_description, title=eco_title)
 
+        ## Looping over all the fields / values
         for key, value in getFieldsInOrder(obj.getTypeInfo().lookupSchema()):
             value = getattr(getattr(obj, key), 'output', getattr(obj, key))
 
-            #import pdb; pdb.set_trace()
+            ## what shall we do with empty/not existing values?
+            # If value does not exist, just skip it
             if value == None or value == []:
                 value = ""
 
-            ## what shall we do with empty/not existing values?
+            # If value is a list, loop through it
             if type(value)() == []:
                 listvalues = ""
                 for ref_value in value:
                     ## Do do: make a proper check for class
                     if str(type(ref_value)) ==  "<class 'z3c.relationfield.relation.RelationValue'>":
+                        ## What do we want to show here. Link to other objects ?
+                        ## Other objects IDs maybe ?
+                        ## Or maybe {title, id, url}
                         listvalues += ref_value.to_object.title
                 value=listvalues
 
@@ -51,6 +56,10 @@ def getCVE(self):
             if value.__class__.__name__ ==  "NamedBlobImage":
                 #If we want to download images, we probably need to redirect later or use a zip
                 value = "{url}/@@images/{key}".format(url = obj.absolute_url(), key=key)
+
+            if value.__class__.__name__ ==  "NamedBlobFile":
+                #Returns the download link for the video
+                value = "{url}/view/++widget++form.widgets.{key}/@@download/{filename}".format(url = obj.absolute_url(), key=key, filename=value.filename)
 
             if value == None or value == []:
                 value = ""
